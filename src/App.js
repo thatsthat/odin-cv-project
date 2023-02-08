@@ -1,11 +1,19 @@
-import "./App.css";
+import React, { Component } from "react";
+import Overview from "./components/General";
 
-function App() {
-  return (
-    <div className="App">
-      <p>hello world</p>
-    </div>
-  );
+class App extends Component {
+  // eslint-disable-next-line no-useless-constructor
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Overview />
+      </div>
+    );
+  }
 }
 
 export default App;
