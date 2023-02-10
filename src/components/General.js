@@ -5,13 +5,13 @@ class General extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
-    this.state = { name: "", email: "", phone: "" };
+    this.state = { name: "", email: "", phone: "", value: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ [event.target.id]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit(event) {
@@ -21,28 +21,28 @@ class General extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <div id="title">General Information</div>
         <form onSubmit={this.handleSubmit}>
           <input
             placeholder="Name"
             type="text"
-            id="name"
-            value={this.state.value}
+            name="name"
+            value={this.state.name}
             onChange={this.handleChange}
           />
           <input
             placeholder="email"
             type="text"
-            id="email"
-            value={this.state.value}
+            name="email"
+            value={this.state.email}
             onChange={this.handleChange}
           />
           <input
             placeholder="Phone number"
             type="text"
-            id="phone"
-            value={this.state.value}
+            name="phone"
+            value={this.state.phone}
             onChange={this.handleChange}
           />
           <div id="buttons">

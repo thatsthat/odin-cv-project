@@ -5,13 +5,13 @@ class Education extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
-    this.state = { name: "", email: "", phone: "" };
+    this.state = { name: "", title: "", date: "", vale: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ [event.target.id]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit(event) {
@@ -21,28 +21,28 @@ class Education extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <div id="title">Education</div>
         <form onSubmit={this.handleSubmit}>
           <input
             placeholder="School name"
             type="text"
-            id="schoolName"
-            value={this.state.value}
+            name="name"
+            value={this.state.name}
             onChange={this.handleChange}
           />
           <input
             placeholder="Title of study"
             type="text"
-            id="title"
-            value={this.state.value}
+            name="title"
+            value={this.state.title}
             onChange={this.handleChange}
           />
           <input
             placeholder="Date of study"
             type="date"
-            id="date"
-            value={this.state.value}
+            name="date"
+            value={this.state.date}
             onChange={this.handleChange}
           />
           <div id="buttons">
