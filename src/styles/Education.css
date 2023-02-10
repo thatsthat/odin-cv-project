@@ -4,6 +4,9 @@ form {
   margin: 0rem 1rem;
   gap: 1rem;
 }
+.label {
+  margin-bottom: -10px;
+}
 #buttons {
   display: flex;
   gap: 2rem;

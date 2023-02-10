@@ -38,8 +38,8 @@ class Education extends Component {
             value={this.state.title}
             onChange={this.handleChange}
           />
+          <div class="label">Date of study</div>
           <input
-            placeholder="Date of study"
             type="date"
             name="date"
             value={this.state.date}
