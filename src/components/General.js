@@ -11,7 +11,7 @@ class General extends Component {
       phone: "",
       value: "",
       editMode: "",
-      viewMode: "hidden, view",
+      viewMode: "hidden",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
