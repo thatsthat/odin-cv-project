@@ -44,21 +44,21 @@ class Work extends Component {
             value={this.state.tasks}
             onChange={this.handleChange}
           />
-          <div class="label">Work beginning date</div>
+          <div className="label">Work beginning date</div>
           <input
             type="date"
             name="date1"
             value={this.state.date}
             onChange={this.handleChange}
           />
-          <div class="label">Work end date</div>
+          <div className="label">Work end date</div>
           <input
             type="date"
             name="date2"
             value={this.state.date}
             onChange={this.handleChange}
           />
-          <div id="buttons">
+          <div className="buttons">
             <input type="submit" value="Edit" />
             <input type="submit" value="Submit" />
           </div>

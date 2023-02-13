@@ -1,14 +1,22 @@
 form {
   display: flex;
   flex-direction: column;
+  padding: 1rem 0rem;
+  gap: 1rem;
+}
+#submitted {
+  display: flex;
+  flex-direction: column;
   margin: 0rem 1rem;
   gap: 1rem;
 }
-#buttons {
+.view {
   display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  flex-direction: column;
+  padding: 1rem 0rem;
+  gap: 1rem;
 }
-#title {
-  margin-bottom: 1rem;
+.hidden * {
+  display: none;
+  visibility: hidden;
 }

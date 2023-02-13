@@ -4,7 +4,7 @@ form {
   margin: 0rem 1rem;
   gap: 1rem;
 }
-#buttons {
+.buttons {
   display: flex;
   gap: 2rem;
 }

@@ -38,14 +38,14 @@ class Education extends Component {
             value={this.state.title}
             onChange={this.handleChange}
           />
-          <div class="label">Date of study</div>
+          <div className="label">Date of study</div>
           <input
             type="date"
             name="date"
             value={this.state.date}
             onChange={this.handleChange}
           />
-          <div id="buttons">
+          <div className="buttons">
             <input type="submit" value="Edit" />
             <input type="submit" value="Submit" />
           </div>

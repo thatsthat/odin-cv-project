@@ -5,7 +5,14 @@ class General extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
-    this.state = { name: "", email: "", phone: "", value: "" };
+    this.state = {
+      name: "",
+      email: "",
+      phone: "",
+      value: "",
+      editMode: "",
+      viewMode: "hidden, view",
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -15,7 +22,8 @@ class General extends Component {
   }
 
   handleSubmit(event) {
-    this.setState({ value: "" });
+    console.log("ieeeeep");
+    //this.setState({ value: "" });
     event.preventDefault();
   }
 
@@ -23,7 +31,7 @@ class General extends Component {
     return (
       <div>
         <div id="title">General Information</div>
-        <form onSubmit={this.handleSubmit}>
+        <form className={this.state.editMode} onSubmit={this.handleSubmit}>
           <input
             placeholder="Name"
             type="text"
@@ -45,11 +53,14 @@ class General extends Component {
             value={this.state.phone}
             onChange={this.handleChange}
           />
-          <div id="buttons">
-            <input type="submit" value="Edit" />
-            <input type="submit" value="Submit" />
-          </div>
+          <input type="submit" value="Submit" />
         </form>
+        <div className={this.state.viewMode} id="submitted">
+          <div>{this.state.name}</div>
+          <div>{this.state.email}</div>
+          <div>{this.state.phone}</div>
+          <input type="submit" value="Edit" />
+        </div>
       </div>
     );
   }
