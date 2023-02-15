@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/General.module.css";
+import styles from "../styles/General.module.css";
 
 class General extends Component {
   // eslint-disable-next-line no-useless-constructor
@@ -35,9 +35,12 @@ class General extends Component {
   render() {
     return (
       <div>
-        <div id="title">General Information</div>
-        <div className="form">
-          <form className={this.state.editMode} onSubmit={this.handleSubmit}>
+        <div id={styles.title}>General Information</div>
+        <div className={styles.form}>
+          <form
+            className={styles[this.state.editMode]}
+            onSubmit={this.handleSubmit}
+          >
             <input
               placeholder="Name"
               type="text"
@@ -62,8 +65,8 @@ class General extends Component {
             <input type="submit" value="Submit" />
           </form>
         </div>
-        <div className={this.state.viewMode} id="submitted">
-          <form className={this.state.viewMode} onSubmit={this.handleEdit}>
+        <div className={styles[this.state.viewMode]} id={styles.submitted}>
+          <form onSubmit={this.handleEdit}>
             <div>{this.state.name}</div>
             <div>{this.state.email}</div>
             <div>{this.state.phone}</div>
