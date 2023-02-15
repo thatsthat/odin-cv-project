@@ -1,11 +1,18 @@
 import React, { Component } from "react";
-import "../styles/Education.module.css";
+import styles from "../styles/Education.module.css";
 
 class Education extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
-    this.state = { name: "", title: "", date: "", vale: "" };
+    this.state = {
+      name: "",
+      title: "",
+      date: "",
+      vale: "",
+      editMode: "",
+      viewMode: "hidden",
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -28,9 +35,13 @@ class Education extends Component {
   render() {
     return (
       <div>
-        <div id="title">Education</div>
-        <div className="form">
-          <form onSubmit={this.handleSubmit}>
+        <h1>Education</h1>
+        <div className={styles.form}>
+          <form
+            onSubmit={this.handleSubmit}
+            className={styles[this.state.editMode]}
+          >
+            <label>School name:</label>
             <input
               placeholder="School name"
               type="text"
@@ -38,6 +49,7 @@ class Education extends Component {
               value={this.state.name}
               onChange={this.handleChange}
             />
+            <label>Title of study:</label>
             <input
               placeholder="Title of study"
               type="text"
@@ -45,22 +57,26 @@ class Education extends Component {
               value={this.state.title}
               onChange={this.handleChange}
             />
-            <div className="label">Date of study</div>
+            <label>Date of study:</label>
             <input
               type="date"
               name="date"
               value={this.state.date}
               onChange={this.handleChange}
             />
-            <div className="buttons">
-              <input type="submit" value="Submit" />
-            </div>
+            <input type="submit" value="Submit" />
           </form>
         </div>
-        <div className={this.state.viewMode} id="submitted">
-          <form className={this.state.viewMode} onSubmit={this.handleEdit}>
+        <div id={styles.submitted}>
+          <form
+            className={styles[this.state.viewMode]}
+            onSubmit={this.handleEdit}
+          >
+            <label>School name:</label>
             <div>{this.state.name}</div>
+            <label>Title of study:</label>
             <div>{this.state.title}</div>
+            <label>Date of study:</label>
             <div>{this.state.date}</div>
             <input type="submit" value="Edit" />
           </form>

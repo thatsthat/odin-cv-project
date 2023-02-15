@@ -35,12 +35,13 @@ class General extends Component {
   render() {
     return (
       <div>
-        <div id={styles.title}>General Information</div>
+        <h1>General Information</h1>
         <div className={styles.form}>
           <form
             className={styles[this.state.editMode]}
             onSubmit={this.handleSubmit}
           >
+            <label>Name:</label>
             <input
               placeholder="Name"
               type="text"
@@ -48,6 +49,7 @@ class General extends Component {
               value={this.state.name}
               onChange={this.handleChange}
             />
+            <label className="styles.formLabel">email:</label>
             <input
               placeholder="email"
               type="text"
@@ -55,6 +57,7 @@ class General extends Component {
               value={this.state.email}
               onChange={this.handleChange}
             />
+            <label className="styles.formLabel">Phone Number:</label>
             <input
               placeholder="Phone number"
               type="text"
@@ -65,10 +68,16 @@ class General extends Component {
             <input type="submit" value="Submit" />
           </form>
         </div>
-        <div className={styles[this.state.viewMode]} id={styles.submitted}>
-          <form onSubmit={this.handleEdit}>
+        <div id={styles.submitted}>
+          <form
+            className={styles[this.state.viewMode]}
+            onSubmit={this.handleEdit}
+          >
+            <label className="styles.formLabel">Name:</label>
             <div>{this.state.name}</div>
+            <label className="styles.formLabel">email:</label>
             <div>{this.state.email}</div>
+            <label className="styles.formLabel">Phone Number:</label>
             <div>{this.state.phone}</div>
             <input type="submit" value="Edit" />
           </form>

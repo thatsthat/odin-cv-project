@@ -1,11 +1,20 @@
 import React, { Component } from "react";
-import "../styles/Work.module.css";
+import styles from "../styles/Work.module.css";
 
 class Work extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
-    this.state = { name: "", title: "", tasks: "", value: "" };
+    this.state = {
+      name: "",
+      title: "",
+      tasks: "",
+      date1: "",
+      date2: "",
+      value: "",
+      editMode: "",
+      viewMode: "hidden",
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -28,47 +37,65 @@ class Work extends Component {
   render() {
     return (
       <div>
-        <div id="title">Work Experience</div>
-        <div className="form">
-          <form onSubmit={this.handleSubmit}>
+        <h1>Work Experience</h1>
+        <div className={styles.form}>
+          <form
+            onSubmit={this.handleSubmit}
+            className={styles[this.state.editMode]}
+          >
             <input
-              placeholder="Company Name"
+              placeholder="Company name"
               type="text"
               name="name"
               value={this.state.name}
               onChange={this.handleChange}
             />
             <input
-              placeholder="Position Title"
+              placeholder="Position title"
               type="text"
               name="title"
               value={this.state.title}
               onChange={this.handleChange}
             />
             <textarea
-              placeholder="Main Tasks"
+              placeholder="Main tasks"
               name="tasks"
               value={this.state.tasks}
               onChange={this.handleChange}
             />
-            <div className="label">Work beginning date</div>
+            <label>Work beginning date:</label>
             <input
               type="date"
               name="date1"
-              value={this.state.date}
+              value={this.state.date1}
               onChange={this.handleChange}
             />
-            <div className="label">Work end date</div>
+            <label>Work end date:</label>
             <input
               type="date"
               name="date2"
-              value={this.state.date}
+              value={this.state.date2}
               onChange={this.handleChange}
             />
-            <div className="buttons">
-              <input type="submit" value="Edit" />
-              <input type="submit" value="Submit" />
-            </div>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+        <div id={styles.submitted}>
+          <form
+            className={styles[this.state.viewMode]}
+            onSubmit={this.handleEdit}
+          >
+            <label>Company name:</label>
+            <div>{this.state.name}</div>
+            <label>Position title:</label>
+            <div>{this.state.title}</div>
+            <label>Main tasks:</label>
+            <div>{this.state.tasks}</div>
+            <label>Work beginning date:</label>
+            <div>{this.state.date1}</div>
+            <label>Work end date:</label>
+            <div>{this.state.date2}</div>
+            <input type="submit" value="Edit" />
           </form>
         </div>
       </div>
